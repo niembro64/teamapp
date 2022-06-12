@@ -8,10 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'teamapp';
 
-  newMember: string = '';
+  newMemberName: string = '';
   members: string[] = [];
 
   addMember = () => {
-    console.log('CLICKED');
+    this.members.push(this.newMemberName);
+    console.log(this.members);
+  };
+
+  onInput = (member: string) => {
+    this.newMemberName = member;
+    console.log(this.newMemberName);
   };
 }
