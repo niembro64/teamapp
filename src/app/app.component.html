@@ -10,11 +10,13 @@
         type="text"
         placeholder="Name"
         (input)="onInput(addMemberInput.value)"
+        [value]="newMemberName"
       />
       <button (click)="addMember()">Add</button>
     </div>
     <div class="input-container">
       <input type="text" placeholder="# of teams" /> <button>Generate</button>
     </div>
+    <p class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</p>
   </div>
 </div>

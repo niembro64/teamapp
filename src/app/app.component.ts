@@ -10,14 +10,18 @@ export class AppComponent {
 
   newMemberName: string = '';
   members: string[] = [];
-
-  addMember = () => {
-    this.members.push(this.newMemberName);
-    console.log(this.members);
-  };
+  errorMessage = '';
 
   onInput = (member: string) => {
     this.newMemberName = member;
-    console.log(this.newMemberName);
+  };
+  addMember = () => {
+    if (!this.newMemberName) {
+      this.errorMessage = "Name can't be empty";
+      return;
+    }
+    this.errorMessage = '';
+    this.members.push(this.newMemberName);
+    this.newMemberName = '';
   };
 }
